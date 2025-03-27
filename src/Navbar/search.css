@@ -1,0 +1,229 @@
+/* ✅ General Styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #131313;
+    flex-direction: row;
+  }
+  
+  /* ✅ Main Product Container */
+  .aavi-main-container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevents wrapping */
+    justify-content: flex-start; /* Aligns cards in a row */
+    gap: 25px;
+    max-width: 100vw;
+    overflow-x: auto; /* Enables horizontal scrolling if needed */
+    padding: 20px;
+}
+
+  /* ✅ Individual Card Wrapper */
+  .aavi-card-wrapper {
+    flex: 1 1 calc(20% - 25px); /* 5 cards per row */
+    min-width: 250px;
+    max-width: 300px;
+    position: relative;
+    width: 310px;
+  }
+  
+  /* ✅ Product Card */
+  .aavi-product-card {
+    width: 100%;
+    height: 480px;
+    background: #232323;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+    border: 10px solid white;
+    box-shadow: 0px 6px 10px rgba(255, 255, 255, 0.1);
+  }
+  
+  .aavi-product-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .aavi-product-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1bbfe9;
+    clip-path: circle(150px at 80% 20%);
+    transition: clip-path 0.5s ease-in-out;
+  }
+  
+  .aavi-product-card:hover::before {
+    clip-path: circle(300px at 80% -20%);
+  }
+  
+  .aavi-product-card::after {
+    content: "AAVI";
+    position: absolute;
+    top: 50%;
+    font-size: 8em;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.04);
+  }
+  
+  /* ✅ Image Box */
+  .aavi-image-box {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+  }
+  
+  .aavi-product-card:hover .aavi-image-box {
+    top: 0%;
+    transform: translateY(-25%);
+  }
+  
+  .aavi-image-box img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 270px;
+    border-radius: 10px;
+  }
+  
+  /* ✅ Content Box */
+  .aavi-content-box {
+    position: absolute;
+    bottom: -2%;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: height 1s;
+    z-index: 9;
+  }
+  
+  .aavi-product-card:hover .aavi-content-box {
+    height: 210px;
+  }
+  
+  /* ✅ Category & Description */
+  .aavi-item-category,
+  .aavi-item-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: opacity 0.5s, visibility 0.5s;
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .aavi-product-card:hover .aavi-item-category,
+  .aavi-product-card:hover .aavi-item-description {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
+  }
+  
+  .aavi-item-category h4 {
+    font-size: 16px;
+    color: white;
+  }
+  
+  .aavi-item-description h6 {
+    color: white;
+    font-weight: 300;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  /* ✅ Pricing */
+  .aavi-product-card .content-box h2 {
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+    font-size: 18px;
+  }
+  
+  /* ✅ Buy Button */
+  .aavi-buy-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #000000;
+    outline: 3px #181717 solid;
+    outline-offset: -3px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 12px;
+    margin-left: 80px;
+    position: relative;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .aavi-buy-button .button-text {
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    font-size: 1em;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .aavi-buy-button:hover {
+    background-color: #181717;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+  }
+  
+  .aavi-buy-button:hover .button-text {
+    color: #f5a623;
+  }
+  
+  .aavi-buy-button:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .aavi-buy-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #f5a623;
+  }
+  
+  /* ✅ RESPONSIVENESS */
+  @media (max-width: 1200px) {
+    .aavi-card-wrapper {
+      flex: 1 1 calc(20% - 20px); /* 3 cards per row */
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .aavi-card-wrapper {
+      flex: 1 1 calc(50% - 25px); /* 2 cards per row */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .aavi-card-wrapper {
+      flex: 1 1 100%; /* 1 card per row */
+    }
+  }

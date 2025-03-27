@@ -1,0 +1,265 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #131313;
+}
+
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 90vw;
+  flex-direction: row;
+}
+
+.card-wrapper {
+  position: relative;
+  flex: 1 1 calc(20% - 20px); /* 5 cards per row */
+  width: 310px;
+  min-width: 250px;
+
+  
+  
+}
+
+.product-card {
+  width: 100%;
+  height: 480px;
+  background: #232323;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+  border: 10px solid rgb(255, 255, 255);
+    border-radius: 10px , 10px ;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1bbfe9;
+  clip-path: circle(150px at 80% 20%);
+  transition: 0.5s ease-in-out;
+}
+
+.product-card:hover:before {
+  clip-path: circle(300px at 80% -20%);
+}
+
+.product-card:after {
+  content: "AAVI";
+  position: absolute;
+  top: 50%;
+  font-size: 8em;
+  font-weight: 800;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.04);
+}
+
+.product-card .image-box {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+}
+
+.product-card:hover .image-box {
+  top: 0%;
+  transform: translateY(-25%);
+}
+
+.product-card .image-box img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 270px;
+}
+
+.product-card .content-box {
+  position: absolute;
+  bottom: -2%;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  transition: 1s;
+  z-index: 9;
+}
+
+.item-category {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.product-card:hover .content-box {
+  height: 210px;
+}
+
+.product-card .content-box h2 {
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.product-card .content-box .item-category,
+.product-card .content-box .item-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.product-card:hover .content-box .item-category,
+.product-card:hover .content-box .item-description {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.5s;
+}
+
+.product-card .content-box .item-description h6 {
+  color: white;
+  font-weight: 300;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.product-card .content-box .item-category span {
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  line-height: 26px;
+  font-size: 14px;
+  display: inline-block;
+  background: #fff;
+  margin: 0 5px;
+  transition: 0.5s;
+  color: #111;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.product-card .content-box a {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #fff;
+  border-radius: 4px;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #111;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.5s;
+}
+
+.product-card:hover .content-box a {
+  opacity: 1;
+  transform: translateY(0px);
+  transition-delay: 0.7s;
+}
+
+/* BUTTON STYLING */
+.buy-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 20px;
+  gap: 15px;
+  background-color: #ffffff;
+  outline: 3px #181717 solid;
+  outline-offset: -3px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-left: 80px;
+  margin-top: 10px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.buy-button .button-text {
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  font-size: 1em;
+  transition: color 0.3s ease-in-out;
+}
+
+.buy-button svg path {
+  transition: fill 0.3s ease-in-out;
+  /* background-color: black; */
+}
+
+.buy-button:hover {
+  background-color: #181717;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Darker shadow on hover */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.buy-button:hover .button-text {
+  color: #f5a623; /* Change text color to a bright orange on hover */
+}
+
+.buy-button:hover svg path {
+  fill: #f5a623; /* Change the SVG icon color to match the text on hover */
+}
+
+.buy-button:active {
+  transform: scale(0.98); /* Add a "press" effect on button click */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow when clicked */
+}
+
+.buy-button:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 0 2px #f5a623; /* Add custom outline color on focus */
+}
+
+
+/* RESPONSIVENESS */
+@media (max-width: 1200px) {
+  .card-wrapper {
+    flex: 1 1 calc(33.33% - 20px); /* 3 cards per row */
+  }
+}
+
+@media (max-width: 900px) {
+  .card-wrapper {
+    flex: 1 1 calc(50% - 20px); /* 2 cards per row */
+  }
+}
+
+@media (max-width: 600px) {
+  .card-wrapper {
+    flex: 1 1 100%; /* 1 card per row */
+  }
+}

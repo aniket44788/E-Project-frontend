@@ -1,0 +1,107 @@
+/* Center the form with a soft glowing effect */
+form {
+    width: 350px;
+    margin: 60px auto;
+    padding: 25px;
+    background: rgba(30, 30, 30, 0.95); /* Dark semi-transparent background */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    backdrop-filter: blur(10px); /* Glassmorphism Effect */
+}
+
+/* Form hover effect */
+form:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+/* Form Heading */
+h2 {
+    color: #00e1ff;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+/* Input fields */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 8px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Input placeholder color */
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Input focus effect */
+input:focus {
+    border-color: #00e1ff;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Button Styling */
+.button-1 {
+    background: linear-gradient(135deg, #00b4db, #0083b0);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Button Hover Effect */
+.button-1:hover {
+    background: linear-gradient(135deg, #0083b0, #005f75);
+    box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+/* Text and Link Styling */
+p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: bold;
+}
+
+/* Link Styling */
+a {
+    text-decoration: none;
+    color: #00e1ff;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Link Hover Effect */
+a:hover {
+    color: #ff5722;
+    text-shadow: 0 0 5px rgba(255, 87, 34, 0.8);
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 400px) {
+    form {
+        width: 90%;
+        padding: 20px;
+    }
+}
