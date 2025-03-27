@@ -20,11 +20,6 @@ function Login() {
         body: JSON.stringify({ email, password }),
       });
   
-       // Log the raw response to debug
-    const text = await response.text();
-    console.log("Raw response:", text);
-
-
 
       // Ensure response is JSON
       const contentType = response.headers.get("content-type");
