@@ -8,7 +8,7 @@ const Allapi = () => {
   const [state, setState] = useState({ message: "", data: [] });
 
   useEffect(() => {
-    fetch("http://localhost:4000/getapi")
+    fetch("https://e-project-backend.onrender.com/getapi")
       .then((res) => res.json())
       .then((data) => {
         console.log("API Response:", data);
@@ -51,7 +51,7 @@ const Allapi = () => {
               <div className="card-wrapper">
                 <div className="product-card">
                   <div className="image-box">
-                    <img src={`http://localhost:4000/${file}`} alt={title} />
+                    <img src={`https://e-project-backend.onrender.com/${file}`} alt={title} />
                   </div>
                   <div className="content-box">
                     <h2>

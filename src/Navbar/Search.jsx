@@ -26,7 +26,7 @@ function Search() {
   const submitData = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:4000/getapi`, {
+      const res = await fetch(`https://e-project-backend.onrender.com/getapi`, {
         method: "GET",
       });
       const result = await res.json();
@@ -87,7 +87,7 @@ function Search() {
             <div key={_id} className="aavi-card-wrapper">
               <div className="aavi-product-card">
                 <div className="aavi-image-box">
-                  <img src={`http://localhost:4000/${file}`} alt={title} />
+                  <img src={`https://e-project-backend.onrender.com/${file}`} alt={title} />
                 </div>
                 <div className="aavi-content-box">
                   <h2>
