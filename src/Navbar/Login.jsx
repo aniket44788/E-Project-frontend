@@ -6,7 +6,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false); // ✅ State for loading
   const navigate = useNavigate();
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -20,6 +20,12 @@ function Login() {
         body: JSON.stringify({ email, password }),
       });
   
+       // Log the raw response to debug
+    const text = await response.text();
+    console.log("Raw response:", text);
+
+
+
       // Ensure response is JSON
       const contentType = response.headers.get("content-type");
       if (!contentType || !contentType.includes("application/json")) {
