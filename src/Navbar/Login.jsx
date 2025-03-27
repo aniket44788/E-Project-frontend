@@ -6,11 +6,11 @@ function Login() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false); // ✅ State for loading
   const navigate = useNavigate();
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Start Loading
-
+    setLoading(true);
+  
     try {
       const response = await fetch("https://e-project-backend.onrender.com/login", {
         method: "POST",
@@ -19,25 +19,32 @@ function Login() {
         },
         body: JSON.stringify({ email, password }),
       });
-
+  
+      // Ensure response is JSON
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        throw new Error("Invalid response from server");
+      }
+  
       const data = await response.json();
       console.log("Server Response:", data);
-
+  
       if (data.success) {
-        setTimeout(() => {  // ✅ Delay before navigating
+        setTimeout(() => {
           alert(data.message || "Login successful!");
-          setLoading(false); // Stop Loading
+          setLoading(false);
           navigate("/allapi");
-        }, 2000); // 2 seconds delay
+        }, 2000);
       } else {
         throw new Error(data.message || "Login failed");
       }
     } catch (error) {
-      setLoading(false); // Stop Loading
+      setLoading(false);
       console.error("Error:", error);
       alert(error.message);
     }
   };
+  
 
   return (
     <>
