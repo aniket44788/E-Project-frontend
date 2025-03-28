@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false); // ✅ State for loading
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -12,16 +12,16 @@ function Login() {
     setLoading(true);
   
     try {
-      const response = await fetch("https://e-project-backend.onrender.com/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        `https://e-project-backend.onrender.com/login?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
   
-
-      // Ensure response is JSON
       const contentType = response.headers.get("content-type");
       if (!contentType || !contentType.includes("application/json")) {
         throw new Error("Invalid response from server");
@@ -46,7 +46,6 @@ function Login() {
     }
   };
   
-
   return (
     <>
       <form onSubmit={handleSubmit}>
