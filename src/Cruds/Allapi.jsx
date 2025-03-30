@@ -8,7 +8,7 @@ const Allapi = () => {
   const [state, setState] = useState({ message: "", data: [] });
 
   useEffect(() => {
-    fetch("https://e-project-backend.onrender.com/getapi")
+    fetch("http://localhost:4000/getapi")
       .then((res) => res.json())
       .then((data) => {
         console.log("API Response:", data);
@@ -39,7 +39,6 @@ const Allapi = () => {
       </nav>
       <Search/>
       <div className="main-container">
-      {/* <input type="search" placeholder="search your product" /> */}
 
         {state.data.map((alldata) => {
           const { _id, title, price, description, category, file } = alldata;
@@ -51,7 +50,7 @@ const Allapi = () => {
               <div className="card-wrapper">
                 <div className="product-card">
                   <div className="image-box">
-                    <img src={`https://e-project-backend.onrender.com/${file}`} alt={title} />
+                    <img src={`http://localhost:4000/${file}`} alt={title} />
                   </div>
                   <div className="content-box">
                     <h2>

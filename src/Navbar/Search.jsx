@@ -26,7 +26,7 @@ function Search() {
   const submitData = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`https://e-project-backend.onrender.com/getapi`, {
+      const res = await fetch(`http://localhost:4000/getapi/`, {
         method: "GET",
       });
       const result = await res.json();

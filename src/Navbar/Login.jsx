@@ -10,30 +10,26 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-  
+
     try {
-      const response = await fetch(
-        `https://e-project-backend.onrender.com/login?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-  
-      const contentType = response.headers.get("content-type");
-      if (!contentType || !contentType.includes("application/json")) {
-        throw new Error("Invalid response from server");
-      }
-  
+      const response = await fetch("http://localhost:4000/create/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+    
+
       const data = await response.json();
       console.log("Server Response:", data);
-  
+
+      setLoading(false);
+
       if (data.success) {
         setTimeout(() => {
           alert(data.message || "Login successful!");
-          setLoading(false);
           navigate("/allapi");
         }, 2000);
       } else {
@@ -45,7 +41,7 @@ function Login() {
       alert(error.message);
     }
   };
-  
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -56,6 +52,7 @@ function Login() {
           placeholder="Enter email here"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
         <input
           type="password"
@@ -63,6 +60,7 @@ function Login() {
           placeholder="Enter password here"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
         <button className="button-1" type="submit" disabled={loading}>
           {loading ? "Loading..." : "Login"}

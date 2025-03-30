@@ -10,7 +10,7 @@ function Cart() {
   const userEmail = "user@example.com"; // Replace with dynamic user email
 
   useEffect(() => {
-    fetch(`https://e-project-backend.onrender.com/getapi/${id}`)
+    fetch(`http://localhost:4000/getapi/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log("Fetched Product:", data);
@@ -31,7 +31,7 @@ function Cart() {
     }
 
     try {
-      const response = await fetch("https://e-project-backend.onrender.com/buy", {
+      const response = await fetch("http://localhost:4000/buy", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -60,7 +60,7 @@ function Cart() {
   return (
     <div className="div-box">
       <h2 className="this-is-title">{product.title}</h2>
-      <img src={`https://e-project-backend.onrender.com/${product.file}`} alt={product.title} width="300px" />
+      <img src={`http://localhost:4000//${product.file}`} alt={product.title} width="300px" />
       <p className="this-is-price-text"> {product.price} INR</p>
       <p className="this-is-description">{product.description}</p>
       
