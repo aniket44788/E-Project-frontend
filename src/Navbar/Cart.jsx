@@ -60,7 +60,7 @@ function Cart() {
   return (
     <div className="div-box">
       <h2 className="this-is-title">{product.title}</h2>
-      <img src={`http://localhost:4000//${product.file}`} alt={product.title} width="300px" />
+      <img src={`http://localhost:4000/${product.file}`} alt={product.title} width="300px" />
       <p className="this-is-price-text"> {product.price} INR</p>
       <p className="this-is-description">{product.description}</p>
       
