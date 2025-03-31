@@ -10,22 +10,30 @@ import Cart from "./Cart";
 function Navbar() {
   const location = useLocation();
 
-  const hideNavbarOnRoutes = ["/allapi", "/dashboard", "/profile", "/mail" , "/cart" ];
+  const hideNavbarOnRoutes = [
+    "/allapi",
+    "/dashboard",
+    "/profile",
+    "/mail",
+    "/cart",
+  ];
 
   return (
     <>
       {!hideNavbarOnRoutes.includes(location.pathname) && (
-        <nav>
-          <Link to="/register">Register</Link>
-          <Link to="/login">Login</Link>
-        </nav>
+        <div className="main-div">
+          <nav>
+            <Link to="/register"> Sign up </Link>
+            <Link to="/login">Login</Link>
+          </nav>
+        </div>
       )}
       <Routes>
         <Route path="/allapi" element={<Allapi />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/mail" element={<Mail/>} />
-        <Route path="/cart/:id" element={<Cart/>} />
+        <Route path="/mail" element={<Mail />} />
+        <Route path="/cart/:id" element={<Cart />} />
       </Routes>
     </>
   );

@@ -1,25 +1,33 @@
 /* Basic Reset */
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-  }
-  
-  nav {
-	padding: 20px 50px; /* Padding around the navbar */
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	top: 0; /* Stick it to the top of the page */
-	width: 100%; /* Ensure the navbar takes the full width of the screen */
-	z-index: 1000; /* Make sure it appears above other content */
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  }
-  
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100vw;
+    margin: 0;
+}
+
+nav {
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure it spans full width */
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid red;
+}
+
   /* Style for Navigation Links */
   nav a {
 	text-decoration: none; /* Remove underline from the links */
-	color: #fff; /* White text color */
+	color: #ffffff; /* White text color */
 	font-size: 16px;
 	font-weight: 500;
 	margin: 0 20px; /* Space out the links */
