@@ -8,7 +8,7 @@ const Allapi = () => {
   const [state, setState] = useState({ message: "", data: [] });
 
   useEffect(() => {
-    fetch(`${procces.env.API}/getapi`)
+    fetch(`${process.env.API}/getapi`)
       .then((res) => res.json())
       .then((data) => {
         console.log("API Response:", data);

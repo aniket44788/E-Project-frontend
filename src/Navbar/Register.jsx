@@ -17,7 +17,7 @@ function Register() {
     }
 
     try {
-      const response = await fetch("https://e-project-beta.vercel.app//create/register", {
+      const response = await fetch(`${process.env.API}/create/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
