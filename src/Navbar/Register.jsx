@@ -17,7 +17,7 @@ function Register() {
     }
 
     try {
-      const response = await fetch("http://localhost:4000/create/register", {
+      const response = await fetch("https://e-project-beta.vercel.app//create/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

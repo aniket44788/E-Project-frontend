@@ -7,10 +7,10 @@ function Cart() {
   const [product, setProduct] = useState(null);
   const [selectedColor, setSelectedColor] = useState("");
   const [quantity, setQuantity] = useState(1);
-  const userEmail = "user@example.com"; // Replace with dynamic user email
+  const userEmail = "pardhiman832@gmail.com"; // Replace with dynamic user email
 
   useEffect(() => {
-    fetch(`http://localhost:4000/getapi/${id}`)
+    fetch(`${procces.env.API}/getapi/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log("Fetched Product:", data);
@@ -31,7 +31,7 @@ function Cart() {
     }
 
     try {
-      const response = await fetch("http://localhost:4000/buy", {
+      const response = await fetch(`${procces.env.API}/buy`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -60,7 +60,7 @@ function Cart() {
   return (
     <div className="div-box">
       <h2 className="this-is-title">{product.title}</h2>
-      <img src={`http://localhost:4000/${product.file}`} alt={product.title} width="300px" />
+      <img src={`${procces.env.API}/${product.file}`} alt={product.title} width="300px" />
       <p className="this-is-price-text"> {product.price} INR</p>
       <p className="this-is-description">{product.description}</p>
       
