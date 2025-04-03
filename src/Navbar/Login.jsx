@@ -10,21 +10,21 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-  
-    console.log("API URL:", import.meta.env.VITE_API); // Debug API URL
-  
+
+    console.log("API URL:", import.meta.env.VITE_API);
+
     try {
       const response = await fetch(`${import.meta.env.VITE_API}/create/login`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: JSON.stringify({ email, password }),
+        body: new URLSearchParams({ email, password }),
       });
-  
+
       const text = await response.text(); // Get raw response text
       console.log("Raw Response:", text); // Log it to see if it's JSON or an error page
-  
+
       // Try parsing JSON safely
       let data;
       try {
@@ -32,11 +32,11 @@ function Login() {
       } catch (jsonError) {
         throw new Error("Received non-JSON response. Possible server error.");
       }
-  
+
       console.log("Server Response:", data);
-  
+
       setLoading(false);
-  
+
       if (data.success) {
         alert(data.message || "Login successful!");
         navigate("/allapi");
@@ -49,7 +49,7 @@ function Login() {
       alert(error.message);
     }
   };
-  
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -73,7 +73,9 @@ function Login() {
         <button className="button-1" type="submit" disabled={loading}>
           {loading ? "Loading..." : "Login"}
         </button>
-        <p>Don't have an account? <Link to="/register">Create Account</Link></p>
+        <p>
+          Don't have an account? <Link to="/register">Create Account</Link>
+        </p>
       </form>
     </>
   );
