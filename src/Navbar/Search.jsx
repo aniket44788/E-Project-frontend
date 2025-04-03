@@ -29,7 +29,7 @@ function Search() {
   const submitData = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${process.env.REACT_APP_API}/getapi/`, {
+      const res = await fetch(`${process.env.VITE_API}/getapi/`, {
         method: "GET",
       });
       const result = await res.json();
@@ -103,7 +103,7 @@ function ProductCard({ product, formatPrice }) {
     <div key={_id} className="aavi-card-wrapper">
       <div className="aavi-product-card">
         <div className="aavi-image-box">
-          <img src={`${process.env.API}/${file}`} alt={title} />
+          <img src={`${process.env.VITE_API}/${file}`} alt={title} />
         </div>
         <div className="aavi-content-box">
           <h2>
