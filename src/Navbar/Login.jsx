@@ -17,9 +17,9 @@ function Login() {
       const response = await fetch(`${import.meta.env.VITE_API}/create/login`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
-        body: new URLSearchParams({ email, password }),
+        body: JSON.stringify({email,password}),
       });
 
       const text = await response.text(); // Get raw response text
