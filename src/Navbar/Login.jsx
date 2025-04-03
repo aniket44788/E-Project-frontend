@@ -12,7 +12,10 @@ function Login() {
     setLoading(true);
 
     try {
-      const response = await fetch(`${process.env.API}/create/login`, {
+
+      console.log("https://e-project-backend.onrender.com", process.env.REACT_APP_API);
+
+      const response = await fetch(`${process.env.REACT_APP_API}/create/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
