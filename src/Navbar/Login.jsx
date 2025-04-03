@@ -15,7 +15,8 @@ function Login() {
 
       console.log("https://e-project-backend.onrender.com", process.env.VITE_API);
 
-      const response = await fetch(`${process.env.VITE_API}/create/login`, {
+      const response = await fetch(`${import.meta.env.VITE_API}/create/login`, {
+
         method: "POST",
         headers: {
           "Content-Type": "application/json",
