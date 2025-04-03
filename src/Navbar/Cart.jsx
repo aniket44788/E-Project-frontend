@@ -10,7 +10,7 @@ function Cart() {
   const userEmail = "pardhiman832@gmail.com"; // Replace with dynamic user email
 
   useEffect(() => {
-    fetch(`${process.env.VITE_API}/getapi/${id}`)
+    fetch(`${import.meta.env.VITE_API}/getapi/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log("Fetched Product:", data);
@@ -31,7 +31,7 @@ function Cart() {
     }
 
     try {
-      const response = await fetch(`${process.env.VITE_API}/buy`, {
+      const response = await fetch(`${import.meta.env.VITE_API}/buy`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -60,7 +60,7 @@ function Cart() {
   return (
     <div className="div-box">
       <h2 className="this-is-title">{product.title}</h2>
-      <img src={`${process.env.VITE_API}/${product.file}`} alt={product.title} width="300px" />
+      <img src={`${import.meta.env.VITE_API}/${product.file}`} alt={product.title} width="300px" />
       <p className="this-is-price-text"> {product.price} INR</p>
       <p className="this-is-description">{product.description}</p>
       

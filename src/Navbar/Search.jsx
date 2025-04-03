@@ -29,7 +29,7 @@ function Search() {
   const submitData = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${process.env.VITE_API}/getapi/`, {
+      const res = await fetch(`${import.meta.env.VITE_API}/getapi/`, {
         method: "GET",
       });
       const result = await res.json();
