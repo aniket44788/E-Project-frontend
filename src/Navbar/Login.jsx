@@ -11,12 +11,10 @@ function Login() {
     e.preventDefault();
     setLoading(true);
 
+    console.log("API URL:", import.meta.env.VITE_API); // ✅ Debugging log
+
     try {
-
-      console.log("https://e-project-backend.onrender.com", process.env.VITE_API);
-
       const response = await fetch(`${import.meta.env.VITE_API}/create/login`, {
-
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -24,18 +22,17 @@ function Login() {
         body: JSON.stringify({ email, password }),
       });
 
-    
+      const text = await response.text(); // Fetch response as text for debugging
+      console.log("Raw Response:", text);
 
-      const data = await response.json();
+      const data = JSON.parse(text); // Try to parse JSON manually
       console.log("Server Response:", data);
 
       setLoading(false);
 
       if (data.success) {
-        setTimeout(() => {
-          alert(data.message || "Login successful!");
-          navigate("/allapi");
-        }, 2000);
+        alert(data.message || "Login successful!");
+        navigate("/allapi");
       } else {
         throw new Error(data.message || "Login failed");
       }
