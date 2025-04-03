@@ -103,7 +103,7 @@ function ProductCard({ product, formatPrice }) {
     <div key={_id} className="aavi-card-wrapper">
       <div className="aavi-product-card">
         <div className="aavi-image-box">
-          <img src={`${process.env.VITE_API}/${file}`} alt={title} />
+          <img src={`${import.meta.env.VITE_API}/${file}`} alt={title} />
         </div>
         <div className="aavi-content-box">
           <h2>

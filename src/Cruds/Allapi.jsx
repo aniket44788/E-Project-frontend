@@ -50,7 +50,7 @@ const Allapi = () => {
               <div className="card-wrapper">
                 <div className="product-card">
                   <div className="image-box">
-                    <img src={`/${file}`} alt={title} />
+                    <img  src={`${import.meta.env.VITE_API}/${file}`} alt={title} />
                   </div>
                   <div className="content-box">
                     <h2>
